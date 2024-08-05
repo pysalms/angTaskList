@@ -1,0 +1,18 @@
+<section id="tasks">
+<header>
+    <h2>{{username}}'s tasks</h2>
+    <menu>
+        <button (click)="onCreateTask()">Add Tasks</button>
+    </menu>
+</header>   
+<ul>
+    @for(task of selectedTasks; track task.id){
+    <!-- <app-task (complete)="onCompletedTask($event)" [task]="task" ></app-task> -->
+    <app-task [task]="task" ></app-task>
+}
+</ul>
+
+</section>
+@if(createTaskFlag){
+    <app-new-task [userId]="userid" (closeDialog)="closeDialog()"></app-new-task>
+    }
